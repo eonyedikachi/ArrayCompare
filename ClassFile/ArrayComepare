@@ -1,0 +1,39 @@
+
+/*This porgeam compares the values of two arrays
+ prints the values that are same and those that are not.
+ */
+ 
+public class ArrayCompare
+{
+	
+	public static void main(String[] args)
+	{
+		// declare and intialise arrays with test values
+		int[] firstArray = {2,4,5,6}, secondArray = {4,5,8,7}, sameValue,  notSameValue;
+		int n,i,j,sameValCounter;
+		
+		 // Initialise variables and define array size
+		n = 3;
+		sameValCounter = 0;
+		sameValue = new int[n];
+		
+		
+		for (i=0; i <= n; i++){
+			
+			for (j=0; j <= n; j++){
+				if (firstArray[i] == secondArray[j]){
+					sameValue[i] = secondArray[i]; // collect values that are the same
+					sameValCounter++; // count number of values collected
+				}// end of if statement
+				
+			} //end of inner j loop
+                    
+		}// end of outer i loop
+			
+		// Print the values that are the same
+		for (i=0; i <= sameValCounter; i++){
+			System.out.print( sameValue[i] + " ");
+		}// end of i print loop
+	
+	}// end of main method
+}// end of ArrayCompare class
