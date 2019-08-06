@@ -1,39 +1,75 @@
 
-/*This porgeam compares the values of two arrays
+/*This porgraam compares the values of two arrays
  prints the values that are same and those that are not.
  */
  
 public class ArrayCompare
 {
+	    // Declare arrays and needed variables globally
+public static int[] firstArray, secondArray, combineValues;
+public static int n, i, j, combineSize;
 	
-	public static void main(String[] args)
-	{
-		// declare and intialise arrays with test values
-		int[] firstArray = {2,4,5,6}, secondArray = {4,5,8,7}, sameValue,  notSameValue;
-		int n,i,j,sameValCounter;
+public static void main(String[] args)
+    {
+        // intialise arrays with test values
+	firstArray = new int {4, 5, 2, 6};
+        secondArray = [7, 6, 5, 8];
+        
+	
+	
+        // Initialise variables and define array size
+	n = 3;
+        combineSize = firstArray.length + secondArray.length;
 		
-		 // Initialise variables and define array size
-		n = 3;
-		sameValCounter = 0;
-		sameValue = new int[n];
-		
-		
-		for (i=0; i <= n; i++){
-			
-			for (j=0; j <= n; j++){
-				if (firstArray[i] == secondArray[j]){
-					sameValue[i] = secondArray[i]; // collect values that are the same
-					sameValCounter++; // count number of values collected
-				}// end of if statement
-				
-			} //end of inner j loop
+        combineValues = combine(firstArray, secondArray);
+        
+	
+        Arrays.sort(combineValues); //sort the combined values
+        for (i=0; i <= n; i++){
+		//check first Array
+                
+            for (j=0; j <= n; j++){
+                if (i == j){
                     
-		}// end of outer i loop
-			
-		// Print the values that are the same
-		for (i=0; i <= sameValCounter; i++){
-			System.out.print( sameValue[i] + " ");
-		}// end of i print loop
-	
-	}// end of main method
+                } else {
+                    if (firstArray[i] == firstArray[j]){
+                    System.out.print(firstArray[j] + " "); // collect values that are the same
+                    
+                    } 
+                }
+            }
+            // check second array
+            
+            for (j=0; j <= n; j++){
+                if (i == j){
+                   
+                } else {
+                    if (secondArray[i] == secondArray[j]){
+                    System.out.print(secondArray[j] + " "); // Print values that are the same
+                    
+                    } 
+                }
+            }
+        }
+        
+         combineValues = combine(firstArray, secondArray);// combine firstArray and secondArray values
+      
+        Arrays.sort(combineValues); //sort the combined values
+     
+        // Print the sorted values of the combined array values 
+        for (i=0; i <= combineSize; i++){
+           System.out.print(combineValues[i] + " ");
+	}
+        
+		
+    }// end of main method
+public static int[] combine(int[] a, int[] b){
+int length = n +n;
+int[] result = new int[length];
+
+System.arraycopy( firstArray, 0, result, 0,n); // copy firstAray to combineValues
+System.arraycopy( secondArray, 0, result, n,n);// copy secondArray to combineValues
+return result;
+}// end of combine method
+
 }// end of ArrayCompare class
